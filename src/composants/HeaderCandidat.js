@@ -1,5 +1,5 @@
 import React from 'react'
-import { NavLink, NavLinkProps } from 'react-router-dom';
+import { NavLink} from 'react-router-dom';
 import icouser from './avatar10.jpg';
 import logo from './logo_large.jpg';
 const HeaderCandidat = () => {

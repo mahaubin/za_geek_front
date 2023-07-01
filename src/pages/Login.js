@@ -72,7 +72,8 @@ const Login = () => {
                           <div className="py-2">
                             <a className="fs-sm fw-medium" href="op_auth_reminder2.html">Mot de passe oublié ?</a>
                             <br/>
-                            <a className="fs-sm fw-medium" href="op_auth_reminder2.html">S'inscrir</a>
+                         
+                            <NavLink to="/inscriptionMembre" className="fs-sm fw-medium">S'inscrire</NavLink>
                           </div>
                           
                         </div>

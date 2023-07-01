@@ -22,6 +22,7 @@ import LoginAdmin  from './pages/LoginAdmin';
 import Login from './pages/Login'
 import SignupCandidat  from './pages/SignupCandidat';
 import SignupEntreprise from './pages/SignupEntreprise';
+import InscriptionMembre from './pages/InscriptionMembre';
 import CreateOffre  from './pages/CreateOffre';
 import ShowAllOffre  from './pages/ShowAllOffre';
 import ShowOneOffre  from './pages/ShowOneOffre';
@@ -46,6 +47,7 @@ const App = () => {
         <Route path="/signupEntreprise" element={<SignupEntreprise />} />
         <Route path="/createOffre" element={<CreateOffre />} />
         <Route path="/showAllOffre" element={<ShowAllOffre />} />
+        <Route path="/inscriptionMembre" element={<InscriptionMembre />} />
         <Route path="/showOneOffre/:id" element={<ShowOneOffre />} />
 
         <Route path="/searchOffre" element={<SearchOffre />} />
