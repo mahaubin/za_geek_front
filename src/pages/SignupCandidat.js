@@ -1,115 +1,96 @@
-import React, { useState, useEffect } from 'react';
-import './Register.css';
+import React, { useState } from 'react';
 
-function SignupCandidat() {
-  const [currentQuestion, setCurrentQuestion] = useState(0);
-  const [questions, setQuestions] = useState([]);
+const SignupForm = () => {
+  const [formData, setFormData] = useState({
+    nom: '',
+    prenom: '',
+    email: '',
+    contact: '',
+    adresse: '',
+    avatar: '',
+    password: '',
+  });
 
-  useEffect(() => {
-    fetch('')
-      .then(response => response.json())
-      .then(data => setQuestions(data))
-      .catch(error => console.log(error));
-  }, []);
-
-  const handleNextQuestion = () => {
-    if (currentQuestion < questions.length - 1) {
-      setCurrentQuestion(currentQuestion + 1);
-    }
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handlePreviousQuestion = () => {
-    if (currentQuestion > 0) {
-      setCurrentQuestion(currentQuestion - 1);
-    }
-  };
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await fetch('/api/auth/register', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
 
-  const handleInputChange = (fieldId, value) => {
-    const updatedQuestions = [...questions];
-    updatedQuestions[currentQuestion].answers[fieldId] = value;
-    setQuestions(updatedQuestions);
-  };
+      if (response.ok) {
+      
+        console.log('Inscription réussie !');
+      } else {
 
-  const renderFields = (question) => {
-    return question.fields.map((field) => {
-      const { label, id, type, options } = field;
-
-      if (type === 'text') {
-        return (
-          <div className="form-group" key={id}>
-            <label>{label}</label>
-            <input
-              type="text"
-              id={id}
-              className="form-control"
-              required
-              value={question.answers[id] || ''}
-              onChange={(e) => handleInputChange(id, e.target.value)}
-            />
-          </div>
-        );
+        console.error('Erreur lors de l\'inscription');
       }
-
-      if (type === 'select') {
-        return (
-          <div className="form-group" key={id}>
-            <label>{label}</label>
-            <select
-              id={id}
-              className="form-control"
-              required
-              value={question.answers[id] || ''}
-              onChange={(e) => handleInputChange(id, e.target.value)}
-            >
-              <option value="">Sélectionnez une option</option>
-              {options?.map((option) => (
-                <option key={option.value} value={option.value}>
-                  {option.label}
-                </option>
-              ))}
-            </select>
-          </div>
-        );
-      }
-
-      return null;
-    });
-  };
-
-  const progressBarStyle = {
-    width: `${((currentQuestion + 1) / questions.length) * 100}%`,
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   return (
-    <div>
-      <div id="page-container" className="page-header-light main-content-boxed">
-        <div className="questionnaire">
-          <div className="progress-bar">
-            <div className="progress-bar__fill" style={progressBarStyle}></div>
-          </div>
-          <div className="progress-bar__percentage">
-            {((currentQuestion + 1) / questions.length) * 100}%
-          </div>
-          <form id="question-form">
-            {questions.map((question, index) => (
-              <div className={`question ${currentQuestion === index ? 'active' : ''}`} key={index}>
-                <h3>{question.question}</h3>
-                {renderFields(question)}
-              </div>
-            ))}
-          </form>
-          <div className="navigation-buttons">
-            <button onClick={handlePreviousQuestion} disabled={currentQuestion === 0}>
-              Précédent
-            </button>
-            <button onClick={handleNextQuestion} disabled={currentQuestion === questions.length - 1}>
-              Suivant
-            </button>
+    <div className="container mt-2">
+      <div className="row justify-content-center">
+        <div className="col-lg-12 col-md-8">
+          <div className="card">
+            <div className="card-body">
+              <h3 className="card-title text-center mb-4">Inscription</h3>
+              <form onSubmit={handleSubmit}>
+                <div className="row">
+                  <div className="col-md-6 mb-3">
+                    <label htmlFor="nom" className="form-label">Nom:</label>
+                    <input type="text" className="form-control" id="nom" name="nom" value={formData.nom} onChange={handleChange} />
+                  </div>
+                  <div className="col-md-6 mb-3">
+                    <label htmlFor="prenom" className="form-label">Prénom:</label>
+                    <input type="text" className="form-control" id="prenom" name="prenom" value={formData.prenom} onChange={handleChange} />
+                  </div>
+                
+               
+                  
+                  <div className="col-md-6 mb-3">
+                    <label htmlFor="contact" className="form-label">Contact:</label>
+                    <input type="text" className="form-control" id="contact" name="contact" value={formData.contact} onChange={handleChange} />
+                  </div>
+              
+                <div className="col-md-6 mb-3">
+                  <label htmlFor="adresse" className="form-label">Adresse:</label>
+                  <input type="text" className="form-control" id="adresse" name="adresse" value={formData.adresse} onChange={handleChange} />
+                </div>
+                <div className="col-md-6 mb-3">
+                  <label htmlFor="avatar" className="form-label">Avatar:</label>
+                  <input type="file" className="form-control" id="avatar" name="avatar" value={formData.avatar} onChange={handleChange} />
+                </div>
+                <div className="col-md-6 mb-3">
+                    <label htmlFor="email" className="form-label">Email:</label>
+                    <input type="email" className="form-control" id="email" name="email" value={formData.email} onChange={handleChange} />
+                  </div>
+                <div className="col-md-6 mb-3">
+                  <label htmlFor="password" className="form-label">Password:</label>
+                  <input type="password" className="form-control" id="password" name="password" value={formData.password} onChange={handleChange} />
+                </div>
+                </div>
+                <div className="text-center">
+                  <button type="submit" className="btn btn-success">S'inscrire</button>
+                </div>
+              </form>
+            </div>
           </div>
         </div>
       </div>
     </div>
   );
-}
+};
 
-export default SignupCandidat;
+export default SignupForm;
+
