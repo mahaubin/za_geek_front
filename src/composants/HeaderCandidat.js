@@ -24,11 +24,11 @@ const HeaderCandidat = () => {
   style={{ width: '21px' }} />
         
        
-        <NavLink to="/register" className="d-none d-sm-inline-block ms-2 text-success">S'inscrire</NavLink>
+        <NavLink to="/inscriptionMembre" className="d-none d-sm-inline-block ms-2 text-success">S'inscrire</NavLink>
       </button>
     </div>
     <div className="ms-2">
-      <button type="button" className="btn btn-sm btn-alt-secondary d-flex align-items-center"
+      <button type="button" className="btn btn-sm btn-alt-secondary d-flex align-items-center"q
         id="page-header-user-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         <img className="rounded-circle" src={icouser} alt="Header Avatar"
   style={{ width: '21px' }} />
