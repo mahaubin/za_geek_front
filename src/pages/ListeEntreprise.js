@@ -1,5 +1,5 @@
 import React from 'react'
-
+import NavbarCandidat from'./components/NavbarCandidat'
 const ListeEntreprise = () => {
   return (
     <div>
