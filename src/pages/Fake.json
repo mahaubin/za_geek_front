@@ -1,16 +1,16 @@
-entreprise:
-{
-    "nom_entreprise": "Innovatech Solutions",
-    "adresse": "123 rue de l'Innovation, Villefort",
-    "temps_post_offre": "2023-06-30 09:00:00",
-    "adresse_image": "https://example.com/logo.png",
-    "description": "Innovatech Solutions est une entreprise dynamique spécialisée dans les solutions numériques innovantes. Notre équipe talentueuse et passionnée travaille sur des projets de développement logiciel, de conception d'interfaces utilisateur et de transformation numérique. Nous recherchons constamment de nouveaux talents pour rejoindre notre équipe et contribuer à créer des solutions numériques de pointe. Si vous êtes passionné par la technologie et que vous souhaitez travailler dans un environnement stimulant, rejoignez-nous chez Innovatech Solutions !"
+[
+  {
+    "titreOffre": "Développeur Web",
+    "nomEntreprise": "ABC Company",
+    "domaine": "Informatique",
+    "description": "Nous recherchons un développeur web expérimenté pour rejoindre notre équipe dynamique.",
+    "logoEntreprise": "https://example.com/logo/abc-company.png"
   },
   {
-    "nom_entreprise": "TechHub Technologies",
-    "adresse": "456 avenue Technopole, Cybercity",
-    "temps_post_offre": "2023-06-29 14:30:00",
-    "adresse_image": "https://example.com/logo2.png",
-    "description": "TechHub Technologies est une entreprise de pointe dans le domaine des solutions technologiques. Nous sommes spécialisés dans le développement de logiciels sur mesure, l'intelligence artificielle et l'analyse de données. Notre équipe d'experts travaille en collaboration pour créer des solutions innovantes qui répondent aux besoins spécifiques de nos clients. Nous sommes passionnés par la technologie et l'impact positif qu'elle peut avoir sur les entreprises. Si vous êtes à la recherche d'un environnement de travail stimulant et que vous souhaitez faire partie d'une équipe dynamique, rejoignez-nous chez TechHub Technologies !"
+    "titreOffre": "Designer Graphique",
+    "nomEntreprise": "XYZ Agency",
+    "domaine": "Design",
+    "description": "Nous sommes à la recherche d'un designer graphique talentueux pour rejoindre notre équipe créative.",
+    "logoEntreprise": "https://example.com/logo/xyz-agency.png"
   }
-    
+]

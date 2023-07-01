@@ -28,7 +28,7 @@ import SearchOffre from './pages/SearchOffre';
 import EntrepriseDashboard from './pages/EntrepriseDashboard';
 import OffrePublier from './pages/OffrePublier';
 import CandidatProfile from './pages/CandidatProfile';
-
+import ListeEntreprise from './pages/ListeEntreprise';
 axios.defaults.withCredentials = true;
 
 const HeaderAndNavbarWrapper = ({ children }) => {
@@ -64,6 +64,7 @@ const App = () => {
           <Route path="/OffrePublier" element={<OffrePublier />} />
           <Route path="/searchOffre" element={<SearchOffre />} />
           <Route path="/candidatProfile" element={<CandidatProfile />} />
+          <Route path="/listeEntreprise" element={<ListeEntreprise />} />
         </Routes>
       </HeaderAndNavbarWrapper>
     </BrowserRouter>
